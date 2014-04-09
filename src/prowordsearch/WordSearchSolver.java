@@ -107,7 +107,7 @@ public class WordSearchSolver {
     }
 
     public static interface FoundListener {
-        public synchronized void foundWord(String word, boolean status);
+        public void foundWord(String word, boolean status);
         public boolean isFound();
     }
 
