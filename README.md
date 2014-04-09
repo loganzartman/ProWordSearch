@@ -13,5 +13,5 @@ Building
 
 Testing
 -------
-`cd src`
+`cd src`<br>
 `java prowordsearch.Testbed`
