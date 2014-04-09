@@ -107,7 +107,7 @@ public class WordSearchSolver {
     }
 
     public static interface FoundListener {
-        public void foundWord(String word, boolean status);
+        public synchronized void foundWord(String word, boolean status);
         public boolean isFound();
     }
 
@@ -115,12 +115,12 @@ public class WordSearchSolver {
         private boolean found = true;
         private List<String> foundWords = new ArrayList<String>();
 
-        public void foundWord(String word, boolean status) {
+        public synchronized void foundWord(String word, boolean status) {
             found = found && status;
             if (status) {foundWords.add(word);}
         }
 
-        public List<String> getFoundWords() {
+        public synchronized List<String> getFoundWords() {
             return foundWords;
         }
 
@@ -133,12 +133,12 @@ public class WordSearchSolver {
         private boolean found = false;
         private List<String> foundWords = new ArrayList<String>();
 
-        public void foundWord(String word, boolean status) {
+        public synchronized void foundWord(String word, boolean status) {
             found = found || status;
             if (status) {foundWords.add(word);}
         }
 
-        public List<String> getFoundWords() {
+        public synchronized List<String> getFoundWords() {
             return foundWords;
         }
 
